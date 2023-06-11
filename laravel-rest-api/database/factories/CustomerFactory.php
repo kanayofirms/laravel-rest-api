@@ -20,13 +20,13 @@ class CustomerFactory extends Factory
         $name = $type == 'I' ? $this->faker->name() : $this->faker->company();
          
         return [
-           // 'name' => $name,
-           // 'type' => $type,
-           // 'email' => $this->faker->email(),
-           // 'address' => $this->faker->streetAddress(),
-           // 'city' => $this->faker->city(),
-           // 'state' => $this->faker->state(),
-           // 'postal_code' => $this->faker->postCode()
+           'name' => $name,
+           'type' => $type,
+           'email' => $this->faker->email(),
+           'address' => $this->faker->streetAddress(),
+           'city' => $this->faker->city(),
+           'state' => $this->faker->state(),
+           'postal_code' => $this->faker->postCode()
         ];
     }
 }
