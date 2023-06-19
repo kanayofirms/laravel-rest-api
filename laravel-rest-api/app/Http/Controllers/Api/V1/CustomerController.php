@@ -16,9 +16,19 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new CustomerCollection(Customer::paginate());
+        $filter = new CustomerQuery();
+        $queryItems = $filter->transform($request); // [['column', 'operator', 'value']]
+
+        if (count($queryItems) ==0) {
+            return new CustomerCollection(Customer::paginate());
+        }
+
+        Customer::where($queryItems)
+
+
+        
     }
 
     /**
