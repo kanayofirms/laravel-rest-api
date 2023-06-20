@@ -3,7 +3,7 @@
 namespace App\Services\V1;
 
 use Illuminate\Http\Request;
-/*
+
 class CustomerQuery {
     protected $safeParams = [
         'name' => ['eq'],
@@ -14,7 +14,7 @@ class CustomerQuery {
         'state' => ['eq'],
         'postalCode' => ['eq', 'gt', 'lt']
     ];
-
+/*
     protected $columnMap = [
         'postalCode' => 'postal_code'
     ];
@@ -42,6 +42,5 @@ class CustomerQuery {
 
         return $eloquery;
     }
-    
+   */ 
 }
-*/
