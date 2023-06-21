@@ -26,7 +26,7 @@ class CustomerQuery {
         'gt' => '>',
         'gte' => '>=',
     ];
-/*
+
     public function transform(Request $request) {
         $eloquery = [];
 
@@ -42,5 +42,5 @@ class CustomerQuery {
 
         return $eloquery;
     }
-   */ 
+   
 }
