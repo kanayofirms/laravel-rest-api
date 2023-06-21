@@ -18,7 +18,7 @@ class CustomerQuery {
     protected $columnMap = [
         'postalCode' => 'postal_code'
     ];
-/*
+
     protected $operatorMap = [
         'eq' => '=',
         'lt' => '<',
@@ -26,7 +26,7 @@ class CustomerQuery {
         'gt' => '>',
         'gte' => '>=',
     ];
-
+/*
     public function transform(Request $request) {
         $eloquery = [];
 
