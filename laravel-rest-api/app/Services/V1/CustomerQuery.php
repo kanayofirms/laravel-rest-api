@@ -37,7 +37,13 @@ class CustomerQuery {
                 continue;
             }
 
-            $column = $this->columnMap[$param]
+            $column = $this->columnMap[$param] ?? $param;
+
+            foreach ($operators as $operator) {
+                if (isset($query[$operator])) {
+                    $eloquery[] = [$column, $this->operatorMap[$operator], $query[$operator]];
+                }
+            }
         }
 
         return $eloquery;
