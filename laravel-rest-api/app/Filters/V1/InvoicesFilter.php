@@ -27,6 +27,7 @@ class InvoicesFilter extends ApiFilter {
         'lte' => '<=',
         'gt' => '>',
         'gte' => '>=',
+        'ne' => '!='
     ];
 
     public function transform(Request $request) {
