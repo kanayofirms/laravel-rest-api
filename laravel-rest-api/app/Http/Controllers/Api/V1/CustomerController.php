@@ -33,15 +33,7 @@ class CustomerController extends Controller
         return new CustomerCollection($customers->paginate()->appends($request->query()));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
