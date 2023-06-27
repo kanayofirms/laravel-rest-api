@@ -30,8 +30,7 @@ class CustomerController extends Controller
         if ($includeInvoices) {
             $customers = $customers->with('invoices');
         }
-
-            return new CustomerCollection($customers->paginate()->appends($request->query()));
+        return new CustomerCollection($customers->paginate()->appends($request->query()));
     }
 
     /**
@@ -63,6 +62,11 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
+        $includeInvoices = request()->query('includeInvoices');
+
+        if ($includeInvoices) {
+            return new CustomerResource($customer->loadMissing('invoices'));
+        }
         return new CustomerResource($customer);
     }
 
