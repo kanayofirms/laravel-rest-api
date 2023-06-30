@@ -14,7 +14,7 @@ class StoreCustomerRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+            return true;
     }
 
     /**
@@ -33,5 +33,11 @@ class StoreCustomerRequest extends FormRequest
             'state' => ['required'],
             'postalCode' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $this->merge([
+            'postal_code' => $this->postalCode
+        ]);
     }
 }
