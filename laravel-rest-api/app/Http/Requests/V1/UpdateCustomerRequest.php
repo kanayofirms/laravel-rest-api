@@ -23,15 +23,20 @@ class UpdateCustomerRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => ['required'],
-            'type' => ['required', Rule::in(['I', 'B', 'i', 'b'])],
-            'email' => ['required', 'email'],
-            'address' => ['required'],
-            'city' => ['required'],
-            'state' => ['required'],
-            'postalCode' => ['required'],
-        ];
+        $method = $this->method();
+
+        if ($method == 'PUT') {
+            return [
+                'name' => ['required'],
+                'type' => ['required', Rule::in(['I', 'B', 'i', 'b'])],
+                'email' => ['required', 'email'],
+                'address' => ['required'],
+                'city' => ['required'],
+                'state' => ['required'],
+                'postalCode' => ['required'],
+            ];
+        }
+       
     }
 
     protected function prepareForValidation() {
