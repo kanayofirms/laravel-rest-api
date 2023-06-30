@@ -35,6 +35,16 @@ class UpdateCustomerRequest extends FormRequest
                 'state' => ['required'],
                 'postalCode' => ['required'],
             ];
+        } else {
+            return [
+                'name' => ['sometimes', 'required'],
+                'type' => ['sometimes', 'required', Rule::in(['I', 'B', 'i', 'b'])],
+                'email' => ['sometimes', 'required', 'email'],
+                'address' => ['sometimes', 'required'],
+                'city' => ['sometimes', 'required'],
+                'state' => ['sometimes', 'required'],
+                'postalCode' => ['sometimes', 'required'],
+            ];
         }
        
     }
