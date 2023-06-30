@@ -11,6 +11,7 @@ use App\Http\Resources\V1\CustomerResource;
 use App\Http\Resources\V1\CustomerCollection;
 use App\Filters\V1\CustomersFilter;
 
+
 class CustomerController extends Controller
 {
     /**
