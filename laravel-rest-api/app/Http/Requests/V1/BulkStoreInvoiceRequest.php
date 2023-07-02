@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BulkStoreInvoiceRequest extends FormRequest
 {
@@ -30,5 +31,19 @@ class BulkStoreInvoiceRequest extends FormRequest
             '*.billedDate' => ['required', 'date_format:Y-m-d H:i:s'],
             '*.paidDate' => ['date_format:Y-m-d H:i:s'],
         ];
+    }
+
+    protected function prepareForValidation() {
+        $data = [];
+
+        foreach ($this->toArray() as $obj) {
+            $obj['customer_id'] = $obj['customerId'] ?? null;
+            $obj['billed_date'] = $obj['billedDate'] ?? null;
+            $obj['paid_date'] = $obj['paidDate'] ?? null;
+
+            $data[] = $obj;
+        }
+
+        $this->merge($data);
     }
 }
